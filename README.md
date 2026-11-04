@@ -492,14 +492,29 @@ drwxr-x--- 3 donghwan donghwan 4096 Nov  3 14:58 .config
 
 ```bash
 pwd
-cd [실습한 상대 경로]
-cd [실습한 절대 경로]
+cd ..
+cd ~
+cd /
+cd /home/위치
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+donghwan@localhost:~$ pwd
+/home/donghwan
+donghwan@localhost:~$ cd ..
+donghwan@localhost:/home$ pwd
+/home
+donghwan@localhost:/home$ cd ~
+donghwan@localhost:~$ pwd
+/home/donghwan
+donghwan@localhost:~$ cd /
+donghwan@localhost:/$ pwd
+/
+donghwan@localhost:/$ cd /home/donghwan
+donghwan@localhost:~$ pwd
+/home/donghwan
 ```
 
 ### 5-3. 파일 권한 확인 및 변경
@@ -522,7 +537,24 @@ ls -l permission-test.txt
 **권한 변경 전후 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+donghwan@localhost:~/linux-test$ touch perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rw-r--r-- 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
+donghwan@localhost:~/linux-test$ chmod u+x perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rwxr--r-- 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
+donghwan@localhost:~/linux-test$ chmod u-x perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rw-r--r-- 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
+donghwan@localhost:~/linux-test$ chmod u+x perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rwxr--r-- 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
+donghwan@localhost:~/linux-test$ chmod 644 perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rw-r--r-- 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
+donghwan@localhost:~/linux-test$ chmod 755 perm.txt
+donghwan@localhost:~/linux-test$ ls -l perm.txt
+-rwxr-xr-x 1 donghwan donghwan 0 Nov  4 16:20 perm.txt
 ```
 
 **권한 변경 내용**
