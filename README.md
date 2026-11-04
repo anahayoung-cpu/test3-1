@@ -1167,13 +1167,18 @@ curl http://localhost:8083
 **실행 명령어**
 
 ```bash
-[실제로 사용한 docker run 명령어 붙여넣기]
+docker run -d --name web-bind -p 8084:80 -v $(pwd)/site:/usr/share/nginx/html nginx:alpine
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker run -d --name web-bind -p 8084:80 -v $(pwd)/site:/usr/share/nginx/html nginx:alpine
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+Digest: sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
+Status: Downloaded newer image for nginx:alpine
+91c5c59178755ebf968c16412189ad69bf604c10af0a7e29e7ec7ec23509520e
 ```
 
 ### 9-2. 변경 전 파일 내용
@@ -1181,13 +1186,23 @@ curl http://localhost:8083
 **호스트 파일 내용 확인**
 
 ```bash
-[실제로 사용한 파일 확인 명령어]
+cat ~/docker-web/site/index.html
 ```
 
 **실행 결과**
 
 ```text
-[변경 전 내용 붙여넣기]
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>내가 만든 커스텀 웹서버입니다.</p>
+</body>
+</html>
 ```
 
 ### 9-3. 호스트 파일 수정
@@ -1195,13 +1210,25 @@ curl http://localhost:8083
 **파일 수정 방법 및 명령어**
 
 ```bash
-[실제로 사용한 수정 명령어]
+nano ~/docker-web/site/index.html
 ```
 
 **변경 후 내용**
 
 ```text
-[변경 후 내용 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ cat ~/docker-web/site/index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>바인드 마운트 수정 반영 테스트입니다.</p>
+</body>
+</html<!DOCTYPE html>
+<html>
 ```
 
 ### 9-4. 컨테이너 반영 여부 확인
@@ -1209,22 +1236,36 @@ curl http://localhost:8083
 **검증 명령어**
 
 ```bash
-[실제로 사용한 컨테이너 내부 확인 명령어]
+docker exec web-bind cat /usr/share/nginx/html/index.html
 ```
 
 **실행 결과**
 
 ```text
-[변경된 내용이 반영된 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker exec web-bind cat /usr/share/nginx/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>바인드 마운트 수정 반영 테스트입니다.</p>
+</body>
+</html<!DOCTYPE html>
+<html>
 ```
 
 **검증 결과**
 
-[호스트 파일을 수정한 결과 컨테이너 내부 또는 웹 브라우저에 어떻게 반영되었는지 설명]
+호스트의 ~/docker-web/site/index.html 파일을 수정한 후, 컨테이너 내부의 /usr/share/nginx/html/index.html 파일 내용도 동일하게 변경된 것을 확인하였다. 또한 브라우저 및 curl 명령어를 통해 localhost:8084 접속 시 수정된 내용이 즉시 반영되는 것을 확인하였다. 이를 통해 바인드 마운트를 사용하면 호스트 파일 변경 사항이 컨테이너에 실시간으로 반영됨을 검증하였다.
 
 **증거 자료**
 
-![바인드 마운트 변경 전후 비교](screenshots/bind-mount.png)
+<img width="822" height="306" alt="8084-1" src="https://github.com/user-attachments/assets/fb55b714-ed9d-4c6b-a3a9-d0bacdc81a5e" />
+<img width="836" height="332" alt="8084" src="https://github.com/user-attachments/assets/ebee33cc-9610-4aec-846f-b96a8e393f9c" />
+
 
 ---
 
