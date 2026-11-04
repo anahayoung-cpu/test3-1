@@ -1074,13 +1074,13 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS
 **실행 명령어**
 
 ```bash
-docker run -d -p [호스트포트]:[컨테이너포트] --name [컨테이너명] [이미지명]:[태그]
+docker run -d -p 8082:80 --name web-review1 my-nginx-web:v1
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+6d98317c4b88989d38c930792fed56b71afcbaf38c08ea3f697a552017fa884c
 ```
 
 ### 8-2. 웹 서버 접속 확인
@@ -1088,7 +1088,7 @@ docker run -d -p [호스트포트]:[컨테이너포트] --name [컨테이너명]
 **접속 주소**
 
 ```text
-http://localhost:[호스트포트]
+http://localhost:8082
 ```
 
 **curl 검증 명령어**
@@ -1100,7 +1100,18 @@ curl http://localhost:[호스트포트]
 **실행 결과**
 
 ```text
-[실제 웹 서버 응답 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ curl http://localhost:8082
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>내가 만든 커스텀 웹서버입니다.</p>
+</body>
+</html>
 ```
 
 ### 8-3. 포트 변경 후 추가 접속 확인
@@ -1108,32 +1119,40 @@ curl http://localhost:[호스트포트]
 **두 번째 실행 명령어**
 
 ```bash
-docker run -d -p [두 번째 호스트포트]:[컨테이너포트] --name [두 번째 컨테이너명] [이미지명]:[태그]
+docker run -d -p 8083:80 --name web-review2 my-nginx-web:v1
 ```
 
 **접속 확인**
 
 ```bash
-curl http://localhost:[두 번째 호스트포트]
+curl http://localhost:8083
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>내가 만든 커스텀 웹서버입니다.</p>
+</body>
+</html>
 ```
 
 ### 8-4. 브라우저 접속 증거
 
 첫 번째 접속 화면:
 
-![첫 번째 웹 서버 접속 화면](screenshots/web-browser-1.png)
+<img width="802" height="306" alt="8082" src="https://github.com/user-attachments/assets/5306fd7a-87b5-491a-b4a1-73287d78c856" />
 
 두 번째 접속 화면:
 
-![두 번째 웹 서버 접속 화면](screenshots/web-browser-2.png)
-
-※ 실제 스크린샷을 screenshots 폴더에 저장한 뒤 파일명을 일치시킨다.
+<img width="814" height="340" alt="8083" src="https://github.com/user-attachments/assets/c5d1a067-7302-45e0-a1a1-1c5556044de6" />
 
 ---
 
