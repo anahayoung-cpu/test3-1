@@ -1287,7 +1287,12 @@ docker volume ls
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker volume create mydata-vol
+mydata-vol
+ahy@DESKTOP-OO963F5:~/docker-web$ docker volume ls
+DRIVER    VOLUME NAME
+local     my-data-volume
+local     mydata-vol
 ```
 
 ### 10-2. 볼륨 연결 및 데이터 저장
@@ -1295,19 +1300,29 @@ docker volume ls
 **사용 명령어**
 
 ```bash
-docker run -d --name [첫 번째 컨테이너명] -v [볼륨명]:/data ubuntu sleep infinity
+docker run -d --name vol-test1 -v mydata-vol:/data ubuntu sleep infinity
 ```
 
 데이터 생성 및 확인:
 
 ```bash
-docker exec -it [첫 번째 컨테이너명] bash -lc "echo '[저장할 내용]' > /data/hello.txt && cat /data/hello.txt"
+docker exec -it vol-test1 bash -lc "echo 'Docker volume persistence test' > /data/hello.txt && cat /data/hello.txt"
 ```
 
 **실행 결과**
 
 ```text
-[실제 저장 내용 및 출력 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker run -d --name vol-test1 -v mydata-vol:/data ubuntu sleep infinity
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+f3f25b84a7d7: Pull complete
+edafa32f5d9e: Pull complete
+21594acc2d8b: Download complete
+Digest: sha256:6a06111c3b0a8600feadb270aec771dc239bf407b25625f93f44ab00e11f4d3c
+Status: Downloaded newer image for ubuntu:latest
+511339c9a673e468bfe90b21e51c2869b284431a5579869f465f7417c9d803df
+ahy@DESKTOP-OO963F5:~/docker-web$ docker exec -it vol-test1 bash -lc "echo 'Docker volume persistence test' > /data/hello.txt && cat /data/hello.txt"
+Docker volume persistence test
 ```
 
 ### 10-3. 첫 번째 컨테이너 삭제
@@ -1315,13 +1330,14 @@ docker exec -it [첫 번째 컨테이너명] bash -lc "echo '[저장할 내용]'
 **사용 명령어**
 
 ```bash
-docker rm -f [첫 번째 컨테이너명]
+docker rm -f docker rm -f vol-test1
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker rm -f vol-test1
+vol-test1
 ```
 
 ### 10-4. 새 컨테이너에서 데이터 확인
@@ -1335,25 +1351,29 @@ docker run -d --name [두 번째 컨테이너명] -v [동일한 볼륨명]:/data
 이전 데이터 확인:
 
 ```bash
-docker exec -it [두 번째 컨테이너명] bash -lc "cat /data/hello.txt"
+docker exec -it vol-test2 bash -lc "cat /data/hello.txt"
 ```
 
 **실행 결과**
 
 ```text
-[이전 데이터가 확인된 실제 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ docker exec -it vol-test2 bash -lc "cat /data/hello.txt"
+Docker volume persistence test
 ```
 
 ### 10-5. 영속성 검증 결과
 
-- 첫 번째 컨테이너에서 저장한 데이터: [내용 입력]
-- 첫 번째 컨테이너 삭제 여부: [결과 입력]
-- 두 번째 컨테이너 연결 여부: [결과 입력]
-- 데이터 유지 여부: [확인 결과 입력]
+- 첫 번째 컨테이너에서 저장한 데이터: Docker volume persistence test
+- 첫 번째 컨테이너 삭제 여부: docker rm -f vol-test1 명령으로 삭제 완료
+- 두 번째 컨테이너 연결 여부: mydata-vol 볼륨을 연결한 vol-test2 컨테이너 실행 완료
+- 데이터 유지 여부: 유지됨. vol-test2에서 /data/hello.txt 내용을 확인했을 때 동일한 데이터가 출력됨
 
 **증거 자료**
+<img width="598" height="118" alt="image" src="https://github.com/user-attachments/assets/6b57f7f7-f440-4632-915f-714d8bb7f512" />
 
-![Docker 볼륨 영속성 검증](screenshots/docker-volume.png)
+<img width="940" height="250" alt="image" src="https://github.com/user-attachments/assets/b6ebe2c7-8420-4b01-89b4-f348cb3c659e" />
+
+<img width="928" height="130" alt="image" src="https://github.com/user-attachments/assets/5a0152fe-bb32-4111-b154-4961091dba4e" />
 
 ---
 
