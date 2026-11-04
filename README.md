@@ -1368,7 +1368,8 @@ Docker volume persistence test
 - 두 번째 컨테이너 연결 여부: mydata-vol 볼륨을 연결한 vol-test2 컨테이너 실행 완료
 - 데이터 유지 여부: 유지됨. vol-test2에서 /data/hello.txt 내용을 확인했을 때 동일한 데이터가 출력됨
 
-**증거 자료**
+**증거 자료** 
+
 <img width="598" height="118" alt="image" src="https://github.com/user-attachments/assets/6b57f7f7-f440-4632-915f-714d8bb7f512" />
 
 <img width="940" height="250" alt="image" src="https://github.com/user-attachments/assets/b6ebe2c7-8420-4b01-89b4-f348cb3c659e" />
@@ -1390,7 +1391,8 @@ git --version
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ git --version
+git version 2.53.0
 ```
 
 ### 11-2. Git 사용자 정보 및 기본 브랜치 설정
@@ -1398,8 +1400,8 @@ git --version
 **사용 명령어**
 
 ```bash
-git config --global user.name "[설정한 사용자 이름]"
-git config --global user.email "[설정한 이메일]"
+git config --global user.name "anahayoung-cpu"
+git config --global user.email "a*****ng@gmail.com"
 git config --global init.defaultBranch main
 ```
 
@@ -1412,7 +1414,21 @@ git config --list
 **실행 결과**
 
 ```text
-[민감정보를 제거하거나 마스킹한 실제 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ git config --global user.name "anahayoung-cpu"
+ahy@DESKTOP-OO963F5:~/docker-web$ git config --global user.email "a*****ng@gmail.com"
+ahy@DESKTOP-OO963F5:~/docker-web$ git config --global init.defaultBranch main
+ahy@DESKTOP-OO963F5:~/docker-web$ git config --list
+user.email=a*****ng@gmail.com
+user.name=anahayoung-cpu
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/anahayoung-cpu/test3-1.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
 ```
 
 ### 11-3. Git 로컬 저장소 생성
@@ -1427,7 +1443,13 @@ git status
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ git init
+Reinitialized existing Git repository in /home/ahy/docker-web/.git/
+ahy@DESKTOP-OO963F5:~/docker-web$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
 ```
 
 ### 11-4. 변경 파일 등록 및 커밋
@@ -1443,8 +1465,21 @@ git status
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ git add .
+ahy@DESKTOP-OO963F5:~/docker-web$ git commit -m "Initial project setup"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+ahy@DESKTOP-OO963F5:~/docker-web$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
 ```
+ * 현재 프로젝트는 이미 Git 저장소로 초기화되어 있었으며, git status 확인 결과 working tree clean 상태임.
+   즉, 모든 파일이 이미 커밋되어 있어 추가 커밋할 변경사항은 없음.
+   
 
 ### 11-5. GitHub 원격 저장소 연결
 
@@ -1463,9 +1498,16 @@ git push -u origin main
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/docker-web$ git remote -v
+origin  https://github.com/anahayoung-cpu/test3-1.git (fetch)
+origin  https://github.com/anahayoung-cpu/test3-1.git (push)
+ahy@DESKTOP-OO963F5:~/docker-web$ git branch -vv
+* main effc9c8 [origin/main] Merge branch 'main' of https://github.com/anahayoung-cpu/test3-1
 ```
 
+ * 현재 연결된 상태로 저장소 및 브랜치 추적 상태 확인용으로 실행.
+
+   
 ### 11-6. VS Code 및 GitHub 연동 확인
 
 **수행 내용**
@@ -1477,7 +1519,12 @@ git push -u origin main
 
 **증거 자료**
 
-![VS Code GitHub 연동 화면](screenshots/github-vscode.png)
+<img width="922" height="872" alt="image" src="https://github.com/user-attachments/assets/d3c96afd-d670-4ab6-ad38-4dbe4a4d512a" />
+<img width="386" height="584" alt="image" src="https://github.com/user-attachments/assets/971d0b81-ffe7-4139-ab61-9da024c14d5e" />
+<img width="848" height="96" alt="image" src="https://github.com/user-attachments/assets/3c6ed86d-9b54-4f36-a9d1-cfa6d6385687" />
+
+
+
 
 ---
 
