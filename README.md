@@ -273,7 +273,6 @@ pwd
 PS C:\Users\김동환> cd Desktop
 PS C:\Users\김동환\Desktop> cd ..
 PS C:\Users\김동환> mkdir codyssey
-PS C:\Users\김동환> mkdir codyssey
 
 
     디렉터리: C:\Users\김동환
@@ -382,14 +381,51 @@ Move-Item hello.txt .\moved\
 ls .\moved\
 Get-Content .\moved\hello.txt
 Move-Item .\moved\hello.txt .\
-Remove-Item hello.backup.txt
+Remove-Item hello-backup.txt
 ls
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\Users\김동환\codyssey> mkdir moved
+
+
+    디렉터리: C:\Users\김동환\codyssey
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-04   오후 3:31                moved
+
+
+PS C:\Users\김동환\codyssey> Move-Item hello.txt .\moved\
+PS C:\Users\김동환\codyssey> ls .\moved\
+
+
+    디렉터리: C:\Users\김동환\codyssey\moved
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-04   오후 3:25             16 hello.txt
+
+
+PS C:\Users\김동환\codyssey> Get-Content .\moved\hello.txt
+Hello, Docker!
+PS C:\Users\김동환\codyssey> Move-Item .\moved\hello.txt .\
+PS C:\Users\김동환\codyssey> Remove-Item hello-backup.txt
+PS C:\Users\김동환\codyssey> ls
+
+
+    디렉터리: C:\Users\김동환\codyssey
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-04   오후 3:32                moved
+-a----      2026-11-04   오후 3:25             16 hello.txt
+
 ```
 
 **전체 터미널 실행 기록**
@@ -417,7 +453,33 @@ ls -la
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+donghwan@localhost:~$ pwd
+/home/donghwan
+donghwan@localhost:~$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+donghwan@localhost:~$ ls -la
+total 32
+drwxr-x--- 4 donghwan donghwan 4096 Nov  4 15:21 .
+drwxr-xr-x 3 root     root     4096 Nov  3 14:55 ..
+-rw------- 1 donghwan donghwan   27 Nov  4 15:21 .bash_history
+-rw-r--r-- 1 donghwan donghwan  220 Nov  3 14:55 .bash_logout
+-rw-r--r-- 1 donghwan donghwan 3771 Nov  3 14:55 .bashrc
+drwxr-x--- 4 donghwan donghwan 4096 Nov  3 14:58 .cache
+drwxr-x--- 3 donghwan donghwan 4096 Nov  3 14:58 .config
+-rw-rw-r-- 1 donghwan donghwan    0 Nov  4 12:44 .motd_shown
+-rw-r--r-- 1 donghwan donghwan  807 Nov  3 14:55 .profile
 ```
 
 ### 5-2. 절대 경로 및 상대 경로 실습
