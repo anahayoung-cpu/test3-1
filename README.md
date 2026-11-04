@@ -1610,25 +1610,6 @@ drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site
 
 권한 문제를 해결한 후 site 폴더의 파일을 수정하면 컨테이너 내부 웹 페이지에도 정상적으로 반영되었고, 브라우저에서 변경 사항을 확인할 수 있었다.
 
----
-
-## 13. 결과물 및 증빙 자료 위치
-
-| 구분 | 파일 및 폴더 | 설명 |
-|---|---|---|
-| 기술 문서 | README.md | 프로젝트 전체 수행 내용 |
-| 터미널 로그 | logs/ | PowerShell 및 Linux 실행 기록 |
-| Docker 로그 | logs/ | Docker 설치 및 운영 기록 |
-| 웹 소스코드 | site/ | 웹 서버 콘텐츠 |
-| Docker 설정 | Dockerfile | 커스텀 이미지 빌드 설정 |
-| 스크린샷 | screenshots/ | 포트 접속 및 데이터 검증 증거 |
-
-### 주요 증빙 자료
-
-- [PowerShell 실습 로그](logs/powershell-practice.txt)
-- [Linux 실습 로그](logs/linux-practice.txt)
-- [Docker 실습 로그](logs/docker-practice.txt)
-- [Git 실습 로그](logs/git-practice.txt)
 
 ---
 
@@ -1637,7 +1618,3 @@ drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site
 본 프로젝트를 통해 개발 환경 구축에 필요한 터미널 및 Linux CLI 기본 명령어, 파일 권한 관리, Docker 이미지 및 컨테이너 운영, Dockerfile 기반 웹 서버 구축, 포트 매핑 및 데이터 영속성의 개념을 실습하였다.
 
 또한 Git과 GitHub를 이용하여 소스코드 및 작업 이력을 관리하고, 프로젝트 실행 과정과 검증 결과를 기술 문서로 정리하였다.
-
-**GitHub Repository**
-
-[최종 GitHub 저장소 링크 입력]
