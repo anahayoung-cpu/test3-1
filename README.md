@@ -615,7 +615,114 @@ docker info
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker --version
+Docker version 29.9.2, build a82e528
+ahy@DESKTOP-OO963F5:~$ docker info
+Client:
+ Version:    29.9.2
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.152.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-agent
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.33.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.38.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.6.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.49.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  4.98.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-desktop
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.9
+    Path:     /usr/local/lib/docker/cli-plugins/docker-dhi
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.32
+    Path:     /usr/local/lib/docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.44.2
+    Path:     /usr/local/lib/docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.9
+    Path:     /usr/local/lib/docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.7.35
+    Path:     /usr/local/lib/docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.3.2
+    Path:     /usr/local/lib/docker/cli-plugins/docker-pass
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-sandbox
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.27.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-scout
+
+Server:
+ Containers: 7
+  Running: 3
+  Paused: 0
+  Stopped: 4
+ Images: 4
+ Server Version: 29.9.2
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: local
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: runc io.containerd.runc.v2 nvidia
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc version: v1.5.2-0-g29dd3dc2
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.18.54.1-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 16
+ Total Memory: 15.18GiB
+ Name: docker-desktop
+ ID: 2ce103e4-2f13-40d9-950f-662d2d44b602
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=unix:///var/run/docker-cli.sock
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Firewall Backend: iptables
 ```
 
 ### 6-2. Docker 이미지 확인
@@ -634,7 +741,29 @@ docker images
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker pull nginx:alpine
+docalpine: Pulling from library/nginx
+b9b388a21ecf: Pull complete
+9b0f7dfe35b2: Pull complete
+12b85cff06fd: Pull complete
+26185d08a3ec: Pull complete
+7cc330898115: Pull complete
+7b229517ed22: Pull complete
+657023555a2a: Pull complete
+2ec5fb117ffa: Pull complete
+acc2d54c3743: Download complete
+a4d5b1f57abc: Download complete
+Digest: sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
+Status: Downloaded newer image for nginx:alpine
+docker.io/library/nginx:alpine
+ahy@DESKTOP-OO963F5:~$ docker images
+                                                                                  i Info →   U  In Use
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   c567b231f656       25.9kB         9.49kB    U
+my-web:v1            985aa7ce8e0e        241MB         63.9MB
+nginx:alpine         785835ea65db       94.5MB         27.2MB
+nginx:latest         5ab5b0b01097        243MB         66.8MB
+ubuntu:latest        6a06111c3b0a        163MB         45.9MB    U
 ```
 
 ### 6-3. Docker 컨테이너 상태 확인
@@ -653,7 +782,12 @@ docker ps -a
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ahy@DESKTOP-OO963F5:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                          PORTS     NAMES
+8f66caa56b9d   ubuntu        "bash"     2 minutes ago   Exited (0) About a minute ago             blissful_grothendieck
+68b248d3862a   hello-world   "/hello"   3 minutes ago   Exited (0) 3 minutes ago                  cranky_haibt
 ```
 
 ### 6-4. Docker 로그 및 리소스 확인
@@ -672,7 +806,30 @@ docker stats --no-stream
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker logs myubuntu
+root@c2aee663817a:/# echo "this is myubuntu" > myfile.txt
+root@c2aee663817a:/# cat myfile.txt
+this is myubuntu
+root@c2aee663817a:/# pwd
+/
+root@c2aee663817a:/# exit
+exit
+root@c2aee663817a:/# cat myfile.txt
+this is myubuntu
+root@c2aee663817a:/# exit
+exit
+
+ahy@DESKTOP-OO963F5:~$ stats --no-stream
+Command 'stats' not found, did you mean:
+  command 'statfs' from deb gocryptfs (2.6.1-1)
+  command 'kstats' from deb aircrack-ng (1:1.7+git20230807.4bf83f1a-2ubuntu2)
+  command 'stat' from deb coreutils-from-gnu (0.0.0~ubuntu25)
+  command 'stat' from deb coreutils-from-uutils (0.0.0~ubuntu25)
+  command 'stat' from deb coreutils-from-busybox (0.0.0~ubuntu25)
+  command 'stat' from deb coreutils-from-toybox (0.0.0~ubuntu25)
+  command 'states' from deb enscript (1.6.5.90-3.2build1)
+  command 'sats' from deb mpdtoys (0.26-1build1)
+Try: sudo apt install <deb name>
 ```
 
 ### 6-5. hello-world 컨테이너 실행
@@ -690,7 +847,28 @@ docker run hello-world
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
 ```
 
 ### 6-6. Ubuntu 컨테이너 실행 및 내부 명령어 실습
@@ -715,14 +893,35 @@ echo "Docker container practice"
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~$ docker run -it ubuntu bash
+root@8f66caa56b9d:/# pwd
+/
+root@8f66caa56b9d:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@8f66caa56b9d:/# cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+root@8f66caa56b9d:/# echo "hello docker" > test.txt
+root@8f66caa56b9d:/# cat test.txt
+hello docker
 ```
 
 **컨테이너 종료 및 유지 관찰**
 
-- exit 실행 후 컨테이너 상태: [관찰 결과 입력]
-- 실행 중인 컨테이너에서 exec 사용 결과: [관찰 결과 입력]
-- attach와 exec의 차이: [직접 관찰한 내용 입력]
+- exit 실행 후 컨테이너 상태: [컨테이너는 종료되 docker ps -a 실행 시 컨테이너 목록 확인 가능]
+- 실행 중인 컨테이너에서 exec 사용 결과: [메인 프로세스에 직접 영향을 미침]
+- attach와 exec의 차이: [attach는 메인 프로세스에 직접 영향을 미침. exec는 메인 프로세스는 건드리지 않지만 컨테이너 내부 작업 결과는 남길 수 있음]
 
 **Docker 기본 실습 로그**
 
@@ -738,20 +937,21 @@ echo "Docker container practice"
 
 **선택한 방식**
 
-- [ ] A. NGINX / Apache 등 웹 서버 베이스 이미지 활용
+- [v] A. NGINX / Apache 등 웹 서버 베이스 이미지 활용
 - [ ] B. Ubuntu / Alpine 등 Linux 베이스 이미지 활용
 
 **선택한 베이스 이미지**
 
-[실제로 사용한 이미지 이름 및 버전 입력]
+[nginx:alpine]
 
 **커스텀 적용 내용**
 
 | 커스텀 항목 | 적용 목적 |
 |---|---|
-| [항목 1] | [적용 이유] |
-| [항목 2] | [적용 이유] |
-| [항목 3] | [적용 이유] |
+| index.html | 기본 NGINX 시작 페이지 대신 직접 만든 웹 페이지를 표시하기 위해 |
+| 웹 페이지 제목(My NGINX Web Server) 설정 | 브라우저 탭에서 페이지를 식별하기 쉽게 하기 위해 |
+| 본문 내용(Hello Docker + NGINX!, 한글 안내 문구) 추가 | Docker와 NGINX를 활용한 커스텀 웹 서버임을 명확히 보여주기 위해
+ |
 
 ### 7-2. 웹 서버 소스코드
 
@@ -765,7 +965,17 @@ site/
 **index.html 실제 코드**
 
 ```html
-[실제 작성한 HTML 코드 붙여넣기]
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My NGINX Web Server</title>
+</head>
+<body>
+  <h1>Hello Docker + NGINX!</h1>
+  <p>내가 만든 커스텀 웹서버입니다.</p>
+</body>
+</html>
 ```
 
 ### 7-3. Dockerfile 작성
@@ -779,7 +989,8 @@ Dockerfile
 **실제 Dockerfile 내용**
 
 ```dockerfile
-[직접 작성한 Dockerfile 전체 내용 붙여넣기]
+FROM nginx:alpine
+COPY site/index.html /usr/share/nginx/html/index.html
 ```
 
 ### 7-4. 커스텀 이미지 빌드
@@ -791,13 +1002,31 @@ Dockerfile
 **사용 명령어**
 
 ```bash
-docker build -t [이미지명]:[태그] .
+docker build -t my-nginx-web:v1 .
 ```
 
 **실행 결과**
 
 ```text
-[실제 빌드 결과 붙여넣기]
+[+] Building 3.3s (7/7) FINISHED                                                       docker:default
+ => [internal] load build definition from Dockerfile                                             0.0s
+ => => transferring dockerfile: 109B                                                             0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                  2.1s
+ => [internal] load .dockerignore                                                                0.0s
+ => => transferring context: 2B                                                                  0.0s
+ => [internal] load build context                                                                0.0s
+ => => transferring context: 281B                                                                0.0s
+ => CACHED [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fe  0.0s
+ => => resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53f  0.0s
+ => [2/2] COPY site/index.html /usr/share/nginx/html/index.html                                  0.0s
+ => exporting to image                                                                           1.0s
+ => => exporting layers                                                                          0.1s
+ => => exporting manifest sha256:f24cf0812afaf3dae7af529621577b0dbef69db208e5a6e59ad04931e9ddf5  0.0s
+ => => exporting config sha256:7e36ceb50c8161e4c3331aabe16ef9bda69f9177029e8ca4c86f497d36d20a66  0.0s
+ => => exporting attestation manifest sha256:d55eb222636f296df69f202499127ae28336c4ea24e1491ee0  0.0s
+ => => exporting manifest list sha256:cc185ab54764e4026d332836b52a965311cae79628a8142670faaeeca  0.0s
+ => => naming to docker.io/library/my-nginx-web:v1                                               0.0s
+ => => unpacking to docker.io/library/my-nginx-web:v1    
 ```
 
 ### 7-5. 커스텀 컨테이너 실행
@@ -805,13 +1034,13 @@ docker build -t [이미지명]:[태그] .
 **사용 명령어**
 
 ```bash
-docker run -d --name [컨테이너명] -p [호스트포트]:[컨테이너포트] [이미지명]:[태그]
+docker run -d --name my-nginx-container -p 8081:80 my-nginx-web:v1
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+6a41cb6773216cf6a6a764af9b393d0fc2b40102cf1a438d74854e806c60f662
 ```
 
 **이미지 및 컨테이너 확인**
@@ -824,7 +1053,13 @@ docker ps -a
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+ahy@DESKTOP-OO963F5:~/my-web-project$ docker images
+                                                                                  i Info →   U  In Use
+IMAGE             ID             DISK USAGE   CONTENT SIZE   EXTRA
+my-nginx-web:v1   cc185ab54764       93.6MB         26.3MB    U
+ahy@DESKTOP-OO963F5:~/my-web-project$ docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+6a41cb677321   my-nginx-web:v1   "/docker-entrypoint.…"   9 minutes ago   Up 9 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   my-nginx-container
 ```
 
 ---
