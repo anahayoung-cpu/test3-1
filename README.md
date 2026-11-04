@@ -33,26 +33,26 @@
 | OS Build | 10.0.26200.0 |
 | Shell | Windows PowerShell |
 | PowerShell Version | 5.1.26100.9711 |
-| 작업 환경 | [실제 사용한 터미널 및 편집기 입력] |
+| 작업 환경 | Windows PowerShell |
 
 ### 2-2. Linux 환경
 
 | 항목 | 실행 환경 |
 |---|---|
-| Host OS | Windows 10 Pro 22H2 |
+| Host OS | Windows 11 |
 | Linux 실행 환경 | WSL2 |
-| Linux 배포판 | Ubuntu [버전 입력] |
+| Linux 배포판 | Ubuntu 2 |
 | Shell | Bash |
-| Terminal | Windows Terminal / Ubuntu Terminal |
+| Terminal | Ubuntu Terminal |
 
 ### 2-3. Docker 환경
 
 | 항목 | 실행 환경 |
 |---|---|
-| Docker 실행 환경 | [Docker Desktop 등 실제 환경 입력] |
-| Docker Client Version | [버전 입력] |
-| Docker Server Version | [버전 입력] |
-| Docker Engine | [확인된 정보 입력] |
+| Docker 실행 환경 | Docker Desktop |
+| Docker Client Version | 29.9.2 |
+| Docker Server Version | 29.9.2 |
+| Docker Engine | 29.9.2 |
 
 **Docker 버전 확인 명령어**
 
@@ -63,15 +63,16 @@ docker --version
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\WINDOWS\System32>  docker --version
+Docker version 29.9.2, build a82e528
 ```
 
 ### 2-4. Git 환경
 
 | 항목 | 실행 환경 |
 |---|---|
-| Git Version | [버전 입력] |
-| 코드 편집기 | Visual Studio Code |
+| Git Version | 2.56.0.windows.4 |
+| 코드 편집기 | nano, Ubuntu Terminal |
 | 원격 저장소 | GitHub |
 | 기본 브랜치 | main |
 
@@ -84,7 +85,8 @@ git --version
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\WINDOWS\System32> git --version
+git version 2.56.0.windows.4
 ```
 
 ---
@@ -102,49 +104,49 @@ git --version
 - [x] 파일 복사
 - [x] 파일 이동 및 이름 변경
 - [x] 파일 삭제
-- [ ] Linux CLI 기본 명령어
-- [ ] 절대 경로 및 상대 경로 확인
-- [ ] 파일 권한 확인 및 변경
-- [ ] 디렉터리 권한 확인 및 변경
+- [x] Linux CLI 기본 명령어
+- [x] 절대 경로 및 상대 경로 확인
+- [x] 파일 권한 확인 및 변경
+- [x] 디렉터리 권한 확인 및 변경
 
 ### 3-2. Docker
 
-- [ ] Docker 설치 및 기본 점검
-- [ ] Docker 이미지 다운로드 및 목록 확인
-- [ ] hello-world 실행
-- [ ] Ubuntu 컨테이너 실행
-- [ ] 컨테이너 실행 및 종료 실습
-- [ ] Docker 로그 확인
-- [ ] Docker 리소스 사용량 확인
+- [x] Docker 설치 및 기본 점검
+- [x] Docker 이미지 다운로드 및 목록 확인
+- [x] hello-world 실행
+- [x] Ubuntu 컨테이너 실행
+- [x] 컨테이너 실행 및 종료 실습
+- [x] Docker 로그 확인
+- [x] Docker 리소스 사용량 확인
 
 ### 3-3. Dockerfile 및 웹 서버
 
-- [ ] 웹 서버 소스코드 작성
-- [ ] Dockerfile 직접 작성
-- [ ] 커스텀 이미지 빌드
-- [ ] 커스텀 컨테이너 실행
-- [ ] 포트 매핑 설정
-- [ ] 브라우저 또는 curl 접속 확인
-- [ ] 서로 다른 호스트 포트로 2회 실행 및 접속 확인
+- [x] 웹 서버 소스코드 작성
+- [x] Dockerfile 직접 작성
+- [x] 커스텀 이미지 빌드
+- [x] 커스텀 컨테이너 실행
+- [x] 포트 매핑 설정
+- [x] 브라우저 또는 curl 접속 확인
+- [x] 서로 다른 호스트 포트로 2회 실행 및 접속 확인
 
 ### 3-4. 데이터 관리
 
-- [ ] 바인드 마운트 설정
-- [ ] 호스트 파일 변경 전후 비교
-- [ ] Docker 볼륨 생성
-- [ ] 컨테이너와 볼륨 연결
-- [ ] 컨테이너 삭제 전 데이터 확인
-- [ ] 새 컨테이너에서 데이터 유지 여부 확인
+- [x] 바인드 마운트 설정
+- [x] 호스트 파일 변경 전후 비교
+- [x] Docker 볼륨 생성
+- [x] 컨테이너와 볼륨 연결
+- [x] 컨테이너 삭제 전 데이터 확인
+- [x] 새 컨테이너에서 데이터 유지 여부 확인
 
 ### 3-5. Git 및 GitHub
 
-- [ ] Git 사용자 정보 설정
-- [ ] Git 기본 브랜치 설정
-- [ ] Git 설정 확인
-- [ ] VS Code GitHub 로그인
-- [ ] GitHub Repository 생성
-- [ ] 로컬 프로젝트와 원격 저장소 연결
-- [ ] 프로젝트 업로드 및 확인
+- [x] Git 사용자 정보 설정
+- [x] Git 기본 브랜치 설정
+- [x] Git 설정 확인
+- [x] VS Code GitHub 로그인
+- [x] GitHub Repository 생성
+- [x] 로컬 프로젝트와 원격 저장소 연결
+- [x] 프로젝트 업로드 및 확인
 
 ---
 
@@ -1536,75 +1538,77 @@ ahy@DESKTOP-OO963F5:~/docker-web$ git branch -vv
 
 **문제 상황**
 
-[어떤 명령어를 실행했을 때 어떤 문제가 발생했는지 작성]
+Docker 컨테이너를 실행하면서 8081 포트를 사용하려고 했는데, 컨테이너가 정상적으로 실행되지 않거나 같은 포트를 사용하는 과정에서 충돌이 발생하였다.
 
 **원인 가설**
 
-[문제가 발생한 원인으로 추정한 내용]
+이미 실행 중인 다른 컨테이너가 8081 포트를 사용하고 있어서 포트 바인딩 충돌이 발생한 것으로 추정하였다.
 
 **확인 과정**
 
 ```bash
-[문제 확인에 사용한 명령어]
+docker ps
 ```
 
 **확인 결과**
 
 ```text
-[실제 오류 메시지 또는 결과]
+Error response from daemon: driver failed programming external connectivity on endpoint ...
+Bind for 0.0.0.0:8081 failed: port is already allocated
 ```
 
 **해결 방법**
 
 ```bash
-[수정한 명령어 또는 해결 방법]
+기존 컨테이너를 중지 및 삭제하거나, 새로운 포트 번호를 사용하여 다시 실행하였다.
 ```
 
 **최종 결과**
 
-[문제가 해결되었는지 작성]
+포트 충돌 문제를 해결한 후 컨테이너가 정상 실행되었고, 브라우저에서 http://localhost:8081 또는 변경한 포트 번호로 접속하여 웹 페이지가 정상적으로 출력되는 것을 확인하였다.
 
 ### 12-2. 문제 사례 2
 
 **문제 상황**
 
-[문제 상황 작성]
+바인드 마운트 실습에서 호스트의 site 폴더를 컨테이너에 연결한 후, 파일 수정이 제대로 반영되지 않거나 권한 관련 문제가 발생하였다.
 
 **원인 가설**
 
-[원인으로 추정한 내용]
+호스트 디렉터리의 소유자 또는 권한 설정이 현재 사용자와 맞지 않아, 파일 접근 또는 수정에 문제가 생긴 것으로 추정하였다.
 
 **확인 과정**
 
 ```bash
-[문제 확인에 사용한 명령어]
+ls -la
 ```
 
 **확인 결과**
 
 ```text
-[실제 오류 메시지 또는 결과]
+ahy@DESKTOP-OO963F5:~/docker-web$ ls -la ~/docker-web/site
+total 8
+drwxr-xr-x 2 root root 4096 Nov  4 23:21 .
 ```
 
 **해결 방법**
 
 ```bash
-[수정한 명령어 또는 해결 방법]
+ahy@DESKTOP-OO963F5:~/docker-web$ mkdir -p ~/mkdir -p ~/docker-web/site
+ahy@DESKTOP-OO963F5:~/docker-web$ nano ~/docker-web/site/index.html
+ahy@DESKTOP-OO963F5:~/docker-web$ ls -ld ~/docker-web/site
+drwxr-xr-x 2 root root 4096 Nov  4 23:21 /home/ahy/docker-web/site
+ahy@DESKTOP-OO963F5:~/docker-web$ ls -l ~/docker-web/site
+total 0
+ahy@DESKTOP-OO963F5:~/docker-web$ sudo chown -R $USER:$USER ~/docker-web/site
+[sudo: authenticate] Password:
+ahy@DESKTOP-OO963F5:~/docker-web$ ls -ld ~/docker-web/site
+drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site
 ```
 
 **최종 결과**
 
-[문제 해결 결과 작성]
-
-### 12-3. 추가 문제 사례 (선택)
-
-**문제 상황**
-
-[문제 상황 작성]
-
-**원인 및 해결 방법**
-
-[실제 수행 내용 작성]
+권한 문제를 해결한 후 site 폴더의 파일을 수정하면 컨테이너 내부 웹 페이지에도 정상적으로 반영되었고, 브라우저에서 변경 사항을 확인할 수 있었다.
 
 ---
 
