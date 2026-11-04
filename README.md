@@ -937,8 +937,7 @@ hello docker
 
 **선택한 방식**
 
-- [v] A. NGINX / Apache 등 웹 서버 베이스 이미지 활용
-- [ ] B. Ubuntu / Alpine 등 Linux 베이스 이미지 활용
+- NGINX / Apache 등 웹 서버 베이스 이미지 활용
 
 **선택한 베이스 이미지**
 
