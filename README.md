@@ -167,7 +167,88 @@ ls -Force
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\Users\김동환> pwd
+
+Path
+----
+C:\Users\김동환
+
+
+PS C:\Users\김동환> ls
+
+
+    디렉터리: C:\Users\김동환
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2022-07-01   오전 7:56                .ms-ad
+d-r---      2021-05-04  오후 12:25                3D Objects
+d-----      2026-11-03   오후 2:31                codyssey
+d-r---      2021-05-04  오후 12:25                Contacts
+d-r---      2026-11-04   오전 9:04                Desktop
+d-r---      2026-08-14  오전 10:31                Documents
+d-r---      2026-11-04   오전 8:18                Downloads
+d-r---      2025-01-23   오후 3:40                Favorites
+d-r---      2021-05-04  오후 12:25                Links
+d-r---      2021-05-04  오후 12:25                Music
+d-r---      2026-05-11   오후 2:29                OneDrive
+d-r---      2024-02-26   오전 8:54                Pictures
+d-r---      2021-05-04  오후 12:25                Saved Games
+d-r---      2021-05-04  오후 12:25                Searches
+d-r---      2024-04-01   오전 8:31                Videos
+-a----      2026-08-20   오전 8:38             29 Foxit Reader SDK ActiveX.ini
+-a----      2024-06-25   오전 9:48          21663 KCase.log
+-a----      2026-03-27   오후 4:12            185 totalmines.ini
+
+
+PS C:\Users\김동환> ls -Force
+
+
+    디렉터리: C:\Users\김동환
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2022-07-01   오전 7:56                .ms-ad
+d-r---      2021-05-04  오후 12:25                3D Objects
+d--h--      2021-05-04  오후 12:19                AppData
+d--hsl      2021-05-04   오전 8:55                Application Data
+d-----      2026-11-03   오후 2:31                codyssey
+d-r---      2021-05-04  오후 12:25                Contacts
+d--hsl      2021-05-04   오전 8:55                Cookies
+d-r---      2026-11-04   오전 9:04                Desktop
+d-r---      2026-08-14  오전 10:31                Documents
+d-r---      2026-11-04   오전 8:18                Downloads
+d-r---      2025-01-23   오후 3:40                Favorites
+d--hs-      2026-11-04   오전 7:28                IntelGraphicsProfiles
+d-r---      2021-05-04  오후 12:25                Links
+d--hsl      2021-05-04   오전 8:55                Local Settings
+d-r---      2021-05-04  오후 12:25                Music
+d--hsl      2021-05-04   오전 8:55                My Documents
+d--hsl      2021-05-04   오전 8:55                NetHood
+d-r---      2026-05-11   오후 2:29                OneDrive
+d-r---      2024-02-26   오전 8:54                Pictures
+d--hsl      2021-05-04   오전 8:55                PrintHood
+d--hsl      2021-05-04   오전 8:55                Recent
+d-r---      2021-05-04  오후 12:25                Saved Games
+d-r---      2021-05-04  오후 12:25                Searches
+d--hsl      2021-05-04   오전 8:55                SendTo
+d--hsl      2021-05-04   오전 8:55                Templates
+d-r---      2024-04-01   오전 8:31                Videos
+d--hsl      2021-05-04   오전 8:55                시작 메뉴
+-a----      2026-08-20   오전 8:38             29 Foxit Reader SDK ActiveX.ini
+-a----      2024-06-25   오전 9:48          21663 KCase.log
+-a-h--      2026-11-03   오후 7:09       19398656 NTUSER.DAT
+-a-hs-      2021-05-04   오전 8:55         393216 ntuser.dat.LOG1
+-a-hs-      2021-05-04   오전 8:55        5181440 ntuser.dat.LOG2
+-a-hs-      2021-05-04   오전 8:55          65536 NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TM.blf
+-a-hs-      2021-05-04   오전 8:55         524288 NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer000000000
+                                                  00000000001.regtrans-ms
+-a-hs-      2021-05-04   오전 8:55         524288 NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer000000000
+                                                  00000000002.regtrans-ms
+---hs-      2021-05-04  오후 12:25             20 ntuser.ini
+-a----      2026-03-27   오후 4:12            185 totalmines.ini
 ```
 
 ### 4-2. 디렉터리 이동 및 생성
@@ -189,7 +270,26 @@ pwd
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\Users\김동환> cd Desktop
+PS C:\Users\김동환\Desktop> cd ..
+PS C:\Users\김동환> mkdir codyssey
+PS C:\Users\김동환> mkdir codyssey
+
+
+    디렉터리: C:\Users\김동환
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-04   오후 3:24                codyssey
+
+
+PS C:\Users\김동환> cd codyssey
+PS C:\Users\김동환\codyssey> pwd
+
+Path
+----
+C:\Users\김동환\codyssey
 ```
 
 ### 4-3. 빈 파일 생성 및 파일 내용 입력
@@ -209,7 +309,20 @@ Get-Content hello.txt
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\Users\김동환\codyssey> New-Item hello.txt -ItemType File
+
+
+    디렉터리: C:\Users\김동환\codyssey
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-04   오후 3:25              0 hello.txt
+
+
+PS C:\Users\김동환\codyssey> Set-Content hello.txt "Hello, Docker!"
+PS C:\Users\김동환\codyssey> Get-Content hello.txt
+Hello, Docker!
 ```
 
 ### 4-4. 파일 복사 및 이름 변경
@@ -222,14 +335,37 @@ Get-Content hello.txt
 
 ```powershell
 Copy-Item hello.txt hello-copy.txt
-Rename-Item hello-copy.txt hello.backup.txt
+Rename-Item hello-copy.txt hello-backup.txt
 ls
 ```
 
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+PS C:\Users\김동환\codyssey> Copy-Item hello.txt hello-copy.txt
+PS C:\Users\김동환\codyssey> ls
+
+
+    디렉터리: C:\Users\김동환\codyssey
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-04   오후 3:25             16 hello-copy.txt
+-a----      2026-11-04   오후 3:25             16 hello.txt
+
+
+PS C:\Users\김동환\codyssey> Rename-Item hello-copy.txt hello-backup.txt
+PS C:\Users\김동환\codyssey> ls
+
+
+    디렉터리: C:\Users\김동환\codyssey
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-04   오후 3:25             16 hello-backup.txt
+-a----      2026-11-04   오후 3:25             16 hello.txt
 ```
 
 ### 4-5. 파일 이동 및 삭제
