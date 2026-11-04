@@ -580,7 +580,15 @@ ls -ld permission-dir
 **실행 결과**
 
 ```text
-[실제 실행 결과 붙여넣기]
+donghwan@localhost:~/linux-test$ mkdir testdir
+donghwan@localhost:~/linux-test$ ls -ld testdir
+drwxr-xr-x 2 donghwan donghwan 4096 Nov  4 16:27 testdir
+donghwan@localhost:~/linux-test$ chmod 755 testdir
+donghwan@localhost:~/linux-test$ ls -ld testdir
+drwxr-xr-x 2 donghwan donghwan 4096 Nov  4 16:27 testdir
+donghwan@localhost:~/linux-test$ chmod 700 testdir
+donghwan@localhost:~/linux-test$ ls -ld testdir
+drwx------ 2 donghwan donghwan 4096 Nov  4 16:27 testdir
 ```
 
 **Linux 실습 로그**
