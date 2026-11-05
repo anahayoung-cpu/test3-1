@@ -880,7 +880,7 @@ For more examples and ideas, visit:
 ```
 
  *hello-world 컨테이너 실행 결과
-  -docker run hello-world 명령 실행 후 Docker가 hello-world 이미지를 다운로드하고 컨테이너를 생성·실행하여 안내 메시지를 정상 출력하였다. 이를 통해 Docker daemon 통신, 이미지 pull, 컨테이너 생성 및 실행 기능이 정상 동작함을 확인하였다.
+  -`docker run hello-world` 명령 실행 후 Docker가 `hello-world` 이미지를 Docker Hub에서 내려받고, 이를 기반으로 컨테이너를 생성·실행하여 안내 메시지를 정상적으로 출력하였다. 이를 통해 Docker 클라이언트와 Docker daemon 간 통신, 이미지 pull, 컨테이너 생성 및 실행 기능이 정상적으로 동작함을 확인하였다. 즉, 이미지는 변경되지 않는(불변) 실행 템플릿이고, 컨테이너는 그 이미지를 기반으로 실제 실행되며 상태 변화가 발생할 수 있는(가변) 실행 인스턴스이다.
 
 ### 6-6. Ubuntu 컨테이너 실행 및 내부 명령어 실습
 
@@ -1079,6 +1079,15 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS
 
 ## 8. 포트 매핑 및 웹 서버 접속 검증
 
+**재현 절차**
+
+1. 커스텀 이미지 `my-nginx-web:v1`가 준비되어 있는지 확인한다.
+2. 첫 번째 컨테이너를 실행하여 호스트 8082번 포트를 컨테이너 80번 포트에 매핑한다.
+3. `curl` 명령으로 `http://localhost:8082` 접속 결과를 확인한다.
+4. 두 번째 컨테이너를 실행하여 호스트 8083번 포트를 컨테이너 80번 포트에 매핑한다.
+5. `curl` 명령으로 `http://localhost:8083` 접속 결과를 확인한다.
+6. 브라우저에서 두 포트에 접속하여 화면이 정상 출력되는지 확인한다.
+
 ### 8-1. 포트 매핑 설정
 
 **수행 목적**
@@ -1112,7 +1121,7 @@ http://localhost:8082
 **curl 검증 명령어**
 
 ```bash
-curl http://localhost:[호스트포트]
+curl http://localhost:8082
 ```
 
 **실행 결과**
@@ -1565,7 +1574,9 @@ Docker 컨테이너를 실행하면서 8081 포트를 사용하려고 했는데,
 **확인 과정**
 
 ```bash
+docker run -d --name my-nginx-container -p 8081:80 my-nginx-web:v1
 docker ps
+sudo ss -ltnp | grep 8081
 ```
 
 **확인 결과**
@@ -1578,12 +1589,16 @@ Bind for 0.0.0.0:8081 failed: port is already allocated
 **해결 방법**
 
 ```bash
-기존 컨테이너를 중지 및 삭제하거나, 새로운 포트 번호를 사용하여 다시 실행하였다.
+docker stop my-nginx-container
+docker rm my-nginx-container
+docker run -d --name my-nginx-container -p 8082:80 my-nginx-web:v1
 ```
+
+ -해당 포트를 사용 중인 컨테이너가 있다면 `docker stop my-nginx-container` 명령으로 중지한 뒤, `docker rm my-nginx-container` 명령으로 삭제하고 충돌을 피하기 위해 다른 포트 번호로 변경하여 다시 실행하였다.
 
 **최종 결과**
 
-포트 충돌 문제를 해결한 후 컨테이너가 정상 실행되었고, 브라우저에서 http://localhost:8081 또는 변경한 포트 번호로 접속하여 웹 페이지가 정상적으로 출력되는 것을 확인하였다.
+포트 충돌 문제를 해결한 후 컨테이너가 정상 실행되었고, 브라우저에서 http://localhost:8082 변경한 포트 번호로 접속하여 웹 페이지가 정상적으로 출력되는 것을 확인하였다.
 
 ### 12-2. 문제 사례 2
 
@@ -1609,10 +1624,12 @@ total 8
 drwxr-xr-x 2 root root 4096 Nov  4 23:21 .
 ```
 
+ -확인 결과 site 디렉터리의 소유자가 root:root로 설정되어 있어, 현재 사용자가 자유롭게 수정하기 어려운 상태임을 확인하였다.
+
 **해결 방법**
 
 ```bash
-ahy@DESKTOP-OO963F5:~/docker-web$ mkdir -p ~/mkdir -p ~/docker-web/site
+ahy@DESKTOP-OO963F5:~/docker-web$ mkdir -p ~/docker-web/site
 ahy@DESKTOP-OO963F5:~/docker-web$ nano ~/docker-web/site/index.html
 ahy@DESKTOP-OO963F5:~/docker-web$ ls -ld ~/docker-web/site
 drwxr-xr-x 2 root root 4096 Nov  4 23:21 /home/ahy/docker-web/site
@@ -1621,7 +1638,7 @@ total 0
 ahy@DESKTOP-OO963F5:~/docker-web$ sudo chown -R $USER:$USER ~/docker-web/site
 [sudo: authenticate] Password:
 ahy@DESKTOP-OO963F5:~/docker-web$ ls -ld ~/docker-web/site
-drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site
+**drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site**
 ```
 
 **최종 결과**
@@ -1631,7 +1648,7 @@ drwxr-xr-x 2 ahy ahy 4096 Nov  4 23:21 /home/ahy/docker-web/site
 
 ---
 
-## 14. 최종 수행 결과
+## 13. 최종 수행 결과
 
 본 프로젝트를 통해 개발 환경 구축에 필요한 터미널 및 Linux CLI 기본 명령어, 파일 권한 관리, Docker 이미지 및 컨테이너 운영, Dockerfile 기반 웹 서버 구축, 포트 매핑 및 데이터 영속성의 개념을 실습하였다.
 
