@@ -85,7 +85,7 @@ git --version
 **실행 결과**
 
 ```text
-PS C:\WINDOWS\System32> git --version
+PS C:\WINDOWS\System32> **git --version**
 git version 2.56.0.windows.4
 ```
 
@@ -169,14 +169,14 @@ ls -Force
 **실행 결과**
 
 ```text
-PS C:\Users\김동환> pwd
+PS C:\Users\김동환> **pwd**
 
 Path
 ----
 C:\Users\김동환
 
 
-PS C:\Users\김동환> ls
+PS C:\Users\김동환> **ls**
 
 
     디렉터리: C:\Users\김동환
@@ -204,7 +204,7 @@ d-r---      2024-04-01   오전 8:31                Videos
 -a----      2026-03-27   오후 4:12            185 totalmines.ini
 
 
-PS C:\Users\김동환> ls -Force
+PS C:\Users\김동환> **ls -Force**
 
 
     디렉터리: C:\Users\김동환
@@ -272,10 +272,10 @@ pwd
 **실행 결과**
 
 ```text
-PS C:\Users\김동환> cd Desktop
-PS C:\Users\김동환\Desktop> cd ..
-PS C:\Users\김동환> mkdir codyssey
-
+PS C:\Users\김동환> **cd Desktop**
+PS C:\Users\김동환\Desktop> **cd ..**
+PS C:\Users\김동환> **mkdir codyssey
+**
 
     디렉터리: C:\Users\김동환
 
@@ -285,8 +285,8 @@ Mode                 LastWriteTime         Length Name
 d-----      2026-11-04   오후 3:24                codyssey
 
 
-PS C:\Users\김동환> cd codyssey
-PS C:\Users\김동환\codyssey> pwd
+PS C:\Users\김동환> **cd codyssey**
+PS C:\Users\김동환\codyssey> **pwd**
 
 Path
 ----
@@ -310,7 +310,7 @@ Get-Content hello.txt
 **실행 결과**
 
 ```text
-PS C:\Users\김동환\codyssey> New-Item hello.txt -ItemType File
+PS C:\Users\김동환\codyssey> **New-Item hello.txt -ItemType File**
 
 
     디렉터리: C:\Users\김동환\codyssey
@@ -321,8 +321,8 @@ Mode                 LastWriteTime         Length Name
 -a----      2026-11-04   오후 3:25              0 hello.txt
 
 
-PS C:\Users\김동환\codyssey> Set-Content hello.txt "Hello, Docker!"
-PS C:\Users\김동환\codyssey> Get-Content hello.txt
+PS C:\Users\김동환\codyssey> **Set-Content hello.txt "Hello, Docker!"**
+PS C:\Users\김동환\codyssey> **Get-Content hello.txt**
 Hello, Docker!
 ```
 
@@ -343,8 +343,8 @@ ls
 **실행 결과**
 
 ```text
-PS C:\Users\김동환\codyssey> Copy-Item hello.txt hello-copy.txt
-PS C:\Users\김동환\codyssey> ls
+PS C:\Users\김동환\codyssey> **Copy-Item hello.txt hello-copy.txt**
+PS C:\Users\김동환\codyssey> **ls**
 
 
     디렉터리: C:\Users\김동환\codyssey
@@ -356,8 +356,8 @@ Mode                 LastWriteTime         Length Name
 -a----      2026-11-04   오후 3:25             16 hello.txt
 
 
-PS C:\Users\김동환\codyssey> Rename-Item hello-copy.txt hello-backup.txt
-PS C:\Users\김동환\codyssey> ls
+PS C:\Users\김동환\codyssey> **Rename-Item hello-copy.txt hello-backup.txt**
+PS C:\Users\김동환\codyssey> **ls**
 
 
     디렉터리: C:\Users\김동환\codyssey
@@ -390,7 +390,7 @@ ls
 **실행 결과**
 
 ```text
-PS C:\Users\김동환\codyssey> mkdir moved
+PS C:\Users\김동환\codyssey> **mkdir moved**
 
 
     디렉터리: C:\Users\김동환\codyssey
@@ -401,8 +401,8 @@ Mode                 LastWriteTime         Length Name
 d-----      2026-11-04   오후 3:31                moved
 
 
-PS C:\Users\김동환\codyssey> Move-Item hello.txt .\moved\
-PS C:\Users\김동환\codyssey> ls .\moved\
+PS C:\Users\김동환\codyssey> **Move-Item hello.txt .\moved\**
+PS C:\Users\김동환\codyssey> **ls .\moved\**
 
 
     디렉터리: C:\Users\김동환\codyssey\moved
@@ -413,11 +413,11 @@ Mode                 LastWriteTime         Length Name
 -a----      2026-11-04   오후 3:25             16 hello.txt
 
 
-PS C:\Users\김동환\codyssey> Get-Content .\moved\hello.txt
+PS C:\Users\김동환\codyssey> **Get-Content .\moved\hello.txt**
 Hello, Docker!
-PS C:\Users\김동환\codyssey> Move-Item .\moved\hello.txt .\
-PS C:\Users\김동환\codyssey> Remove-Item hello-backup.txt
-PS C:\Users\김동환\codyssey> ls
+PS C:\Users\김동환\codyssey> **Move-Item .\moved\hello.txt .\**
+PS C:\Users\김동환\codyssey> **Remove-Item hello-backup.txt**
+PS C:\Users\김동환\codyssey> **ls**
 
 
     디렉터리: C:\Users\김동환\codyssey
@@ -428,11 +428,6 @@ Mode                 LastWriteTime         Length Name
 d-----      2026-11-04   오후 3:32                moved
 -a----      2026-11-04   오후 3:25             16 hello.txt
 
-```
-
-**전체 터미널 실행 기록**
-
-- [PowerShell 실습 로그](logs/powershell-practice.txt)
 
 ---
 
@@ -455,12 +450,12 @@ ls -la
 **실행 결과**
 
 ```text
-donghwan@localhost:~$ pwd
+donghwan@localhost:~$ **pwd**
 /home/donghwan
-donghwan@localhost:~$ cat /etc/os-release
+donghwan@localhost:~$ **cat /etc/os-release**
 PRETTY_NAME="Ubuntu 26.04.1 LTS"
-NAME="Ubuntu"
-VERSION_ID="26.04"
+**NAME="Ubuntu"**
+**VERSION_ID="26.04"**
 VERSION="26.04.1 LTS (Resolute Raccoon)"
 VERSION_CODENAME=resolute
 ID=ubuntu
@@ -530,12 +525,12 @@ donghwan@localhost:~$ pwd
 **사용 명령어**
 
 ```bash
-touch permission-test.txt
-ls -l permission-test.txt
-chmod 644 permission-test.txt
-ls -l permission-test.txt
-chmod 755 permission-test.txt
-ls -l permission-test.txt
+touch perm.txt
+ls -l perm.txt
+chmod 644 perm.txt
+ls -l perm.txt
+chmod 755 perm.txt
+ls -l perm.txt
 ```
 
 **권한 변경 전후 결과**
@@ -577,10 +572,10 @@ donghwan@localhost:~/linux-test$ ls -l perm.txt
 **사용 명령어**
 
 ```bash
-mkdir permission-dir
-ls -ld permission-dir
-chmod 755 permission-dir
-ls -ld permission-dir
+mkdir testdir
+ls -ld testdir
+chmod 755 testdir
+ls -ld testdir
 ```
 
 **실행 결과**
@@ -596,10 +591,6 @@ donghwan@localhost:~/linux-test$ chmod 700 testdir
 donghwan@localhost:~/linux-test$ ls -ld testdir
 drwx------ 2 donghwan donghwan 4096 Nov  4 16:27 testdir
 ```
-
-**Linux 실습 로그**
-
-- [Linux 실행 및 권한 실습 로그](logs/linux-practice.txt)
 
 ---
 
