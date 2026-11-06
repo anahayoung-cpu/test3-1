@@ -8,7 +8,7 @@ Linux CLI, Docker, Git/GitHub 등 개발 환경 구축에 필요한 기본 도�
 
 ### 1-2. 주요 수행 내용
 
-- Windows PowerShell 및 Linux CLI 기본 명령어 실습
+- Linux CLI 기본 명령어 실습
 - Linux 파일 및 디렉터리 권한 관리
 - Docker 이미지·컨테이너 실행 및 관리
 - Dockerfile 기반 커스텀 웹 서버 제작
