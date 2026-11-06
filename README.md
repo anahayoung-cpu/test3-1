@@ -148,6 +148,7 @@ ahy@DESKTOP-OO963F5:~$ cp test.txt copy_test.txt
 ahy@DESKTOP-OO963F5:~$ ls
 copy_test.txt test.txt
 ahy@DESKTOP-OO963F5:~$ rm copy_test.txt
+ahy@DESKTOP-OO963F5:~$ ls
 test.txt
 
 ahy@DESKTOP-OO963F5:~$ mkdir hi
