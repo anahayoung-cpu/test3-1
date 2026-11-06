@@ -55,7 +55,7 @@ git version 2.53.0
 - [x] 빈 파일 생성
 - [x] 파일 내용 입력 및 확인
 - [x] 파일 복사
-- [ ] 파일 이동 및 이름 변경 (실행 로그 추가 필요)
+- [x] 파일 이동 및 이름 변경 (실행 로그 추가 필요)
 - [x] 파일 삭제
 - [x] 절대 경로 및 상대 경로 확인
 - [x] 파일 권한 확인 및 변경
@@ -69,7 +69,7 @@ git version 2.53.0
 - [x] Ubuntu 컨테이너 실행
 - [x] 컨테이너 실행 및 종료 상태 확인
 - [x] Docker 로그 확인
-- [ ] Docker 리소스 사용량 확인 (명령어 재실행 및 결과 추가 필요)
+- [x] Docker 리소스 사용량 확인
 
 ### 3-3. Dockerfile 및 웹 서버
 
@@ -128,7 +128,7 @@ drwxr-xr-x 3 root     root     4096 Nov  3 14:55 ..
 
 `ls -la`로 숨김 파일을 포함한 목록과 파일 권한을 확인하였다.
 
-### 4-2. 파일 및 디렉터리 생성·복사·삭제
+### 4-2. 파일 및 디렉터리 생성·복사·삭제·이동·이름변경
 
 **실행 명령어 및 결과**
 
@@ -148,6 +148,16 @@ ahy@DESKTOP-OO963F5:~$ cp test.txt copy_test.txt
 copy_test.txt test.txt
 ahy@DESKTOP-OO963F5:~$ rm copy_test.txt
 test.txt
+
+ahy@DESKTOP-OO963F5:~$ mkdir hi
+ahy@DESKTOP-OO963F5:~$ touch hi.txt
+ahy@DESKTOP-OO963F5:~$ mv hi.txt hi
+ahy@DESKTOP-OO963F5:~/hi$ ls
+hi.txt
+
+ahy@DESKTOP-OO963F5:~/hi$ mv hi.txt hi-copy.txt
+ahy@DESKTOP-OO963F5:~/hi$ ls
+hi-copy.txt
 ```
 
 ### 4-3. 절대 경로 및 상대 경로
