@@ -154,6 +154,7 @@ test.txt
 ahy@DESKTOP-OO963F5:~$ mkdir hi
 ahy@DESKTOP-OO963F5:~$ touch hi.txt
 ahy@DESKTOP-OO963F5:~$ mv hi.txt hi
+ahy@DESKTOP-OO963F5:~$ cd hi
 ahy@DESKTOP-OO963F5:~/hi$ ls
 hi.txt
 
